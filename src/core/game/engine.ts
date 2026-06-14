@@ -150,7 +150,7 @@ export function rollForCurrentPlayer(snapshot: GameSnapshot): GameSnapshot {
     newConsecutiveSixes = 0
   }
 
-  const board = {
+  const board: BoardState = {
     ...snapshot.board,
     lastDiceRoll: value,
     consecutiveSixes: newConsecutiveSixes,

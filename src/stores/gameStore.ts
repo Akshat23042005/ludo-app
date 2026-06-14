@@ -13,6 +13,8 @@ import {
   rollForCurrentPlayer,
 } from '@/core/game'
 import { readStorage } from '@/utils/storage'
+import { playSound } from '@/utils/audio'
+import { useSettingsStore } from './settingsStore'
 
 interface GameState {
   snapshot: GameSnapshot
@@ -117,6 +119,9 @@ export const useGameStore = create<GameState>()(
         const { snapshot, isRolling } = get()
         if (isRolling || snapshot.phase !== 'playing') return
 
+        const soundLevel = useSettingsStore.getState().settings.soundLevel
+        playSound('roll', soundLevel)
+
         set({ isRolling: true, validMoves: [] })
         setTimeout(() => {
           set((state) => {
@@ -152,6 +157,15 @@ export const useGameStore = create<GameState>()(
         const { snapshot } = get()
         const { snapshot: next, result } = moveToken(snapshot, playerId, tokenId)
         if (result.success) {
+          const soundLevel = useSettingsStore.getState().settings.soundLevel
+          if (result.captured) {
+            playSound('capture', soundLevel)
+          } else {
+            playSound('move', soundLevel)
+          }
+          if (next.phase === 'finished') {
+             playSound('win', soundLevel)
+          }
           set({ snapshot: next, validMoves: [] })
         }
       },

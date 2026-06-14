@@ -56,6 +56,14 @@
     @apply antialiased scroll-smooth;
   }
 
+  html[data-theme='light'] {
+    --color-charcoal: #f5f3ef;
+    --color-charcoal-light: #ebe8e2;
+    --color-off-white: #1a1f24;
+    --color-slate-muted: #5a6b7a;
+    --color-gold: #c4a574;
+  }
+
   body {
     @apply bg-charcoal text-off-white font-sans min-h-dvh;
   }
