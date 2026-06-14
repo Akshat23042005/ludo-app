@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+
+  --color-charcoal: #1a1f24;
+  --color-charcoal-light: #252b32;
+  --color-slate: #3d4f5f;
+  --color-slate-muted: #5a6b7a;
+  --color-off-white: #f5f3ef;
+  --color-cream: #ebe8e2;
+  --color-teal: #0d4f4f;
+  --color-teal-light: #1a6b6b;
+  --color-teal-muted: #2a8585;
+  --color-gold: #b8956c;
+  --color-gold-light: #c4a574;
+  --color-gold-muted: #9a7d5a;
+
+  --color-player-red: #c45c5c;
+  --color-player-green: #5c9a6e;
+  --color-player-yellow: #c9a84c;
+  --color-player-blue: #5c7ec4;
+
+  --shadow-soft: 0 4px 24px -4px rgb(26 31 36 / 0.12);
+  --shadow-elevated: 0 12px 40px -8px rgb(26 31 36 / 0.2);
+  --shadow-glow: 0 0 32px -8px rgb(13 79 79 / 0.35);
+
+  --animate-fade-in: fade-in 0.4s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-off-white font-sans min-h-dvh;
+  }
+
+  #root {
+    @apply min-h-dvh;
+  }
+
+  ::selection {
+    @apply bg-teal/40 text-off-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
