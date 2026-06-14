@@ -43,8 +43,8 @@ export function VictoryScreen() {
       durationMs,
       turns: snapshot.board.turnNumber,
       didWin: winner.isHuman,
-      sixesRolled: 0,
-      tokensCaptured: 0,
+      sixesRolled: snapshot.board.sixesRolled,
+      tokensCaptured: snapshot.board.tokensCaptured,
     })
   }, [snapshot, winner, navigate, recordMatch, durationMs])
 

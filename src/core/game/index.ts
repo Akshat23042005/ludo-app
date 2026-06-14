@@ -8,13 +8,17 @@ export {
   getDefaultPlayerConfigs,
   createPlayersFromConfigs,
   getPlayerColorClass,
+  getPlayerColorHex,
   getNextPlayerIndex,
+  getPlayerEntrySquare,
 } from './players'
 
 export {
   createInitialBoard,
   createGameSnapshot,
   getCurrentPlayer,
+  getValidMoves,
+  computeNewPosition,
   rollForCurrentPlayer,
   advanceTurn,
   moveToken,
